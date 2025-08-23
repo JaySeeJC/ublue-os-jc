@@ -12,6 +12,8 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux htop btop zsh steam
 
+dnf5 install -y https://github.com/jonchampagne/ublue-os-jc/releases/download/KernelSources/kernel-6.16.3_bsb_dirty-5.x86_64.rpm https://github.com/jonchampagne/ublue-os-jc/releases/download/KernelSources/kernel-devel-6.16.3_bsb_dirty-5.x86_64.rpm https://github.com/jonchampagne/ublue-os-jc/releases/download/KernelSources/kernel-headers-6.16.3_bsb_dirty-5.x86_64.rpm
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
