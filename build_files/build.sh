@@ -19,7 +19,7 @@ dnf5 install -y tmux htop btop zsh steam borgmatic
 flatpak install --assumeyes --system app.zen_browser.zen
 flatpak install --assumeyes --system com.devolutions.remotedesktopmanager
 flatpak install --assumeyes --system dev.vencord.Vesktop
-flatpak install --assumeyes --system com.spotify.Client
+# flatpak install --assumeyes --system com.spotify.Client
 flatpak install --assumeyes --system md.obsidian.Obsidian
 
 # Remove unwanted flatpaks
