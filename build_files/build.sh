@@ -15,23 +15,32 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux htop btop zsh steam borgmatic
 
-# Install various flatpaks
-mkdir /var/roothome
-flatpak install --noninteractive --system app.zen_browser.zen
-flatpak install --noninteractive --system com.devolutions.remotedesktopmanager
-flatpak install --noninteractive --system dev.vencord.Vesktop
-# flatpak install --assumeyes --system com.spotify.Client
-flatpak install --noninteractive --system md.obsidian.Obsidian
-flatpak install --noninteractive --system org.telegram.desktop
-
-# Remove unwanted flatpaks
-#flatpak uninstall --assumeyes --system org.mozilla.firefox
-#flatpak uninstall --assumeyes --system org.mozilla.Thunderbird
-
-# Install orcaslicer since it's not on flathub
-wget -O orcaslicer.flatpak https://github.com/SoftFever/OrcaSlicer/releases/download/v2.3.1-beta/OrcaSlicer-Linux-flatpak_V2.3.1-beta_x86_64.flatpak
-flatpak install --assumeyes --system orcaslicer.flatpak
-rm orcaslicer.flatpak
+# Set up system flatpaks
+echo '
+org.kde.kcalc
+org.kde.gwenview
+org.kde.kontact
+org.kde.okular
+org.kde.kweather
+org.kde.kclock
+org.fkoehler.KTailctl
+org.kde.haruna
+com.github.tchx84.Flatseal
+com.ranfdev.DistroShelf
+io.github.flattool.Warehouse
+io.missioncenter.MissionCenter
+io.github.input_leap.input-leap
+org.gtk.Gtk3theme.Breeze
+io.github.pwr_solaar.solaar
+org.gustavoperedo.FontDownloader
+org.kde.skanpage
+app.zen_browser.zen
+com.devolutions.remotedesktopmanager
+dev.vencord.Vesktop
+com.spotify.Client
+md.obsidian.Obsidian
+org.telegram.desktop
+' > /usr/etc/ublue-os/system-flatpaks.list
 
 # Use a COPR Example:
 #
