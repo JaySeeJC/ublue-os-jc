@@ -15,6 +15,22 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux htop btop zsh steam borgmatic
 
+# Install various flatpaks
+flatpak install --assumeyes --system app.zen_browser.zen
+flatpak install --assumeyes --system com.devolutions.remotedesktopmanager
+flatpak install --assumeyes --system dev.vencord.Vesktop
+flatpak install --assumeyes --system com.spotify.Client
+flatpak install --assumeyes --system md.obsidian.Obsidian
+
+# Remove unwanted flatpaks
+flatpak uninstall --assumeyes --system org.mozilla.firefox
+flatpak uninstall --assumeyes --system org.mozilla.Thunderbird
+
+# Install orcaslicer since it's not on flathub
+curl -o orcaslicer.flatpak https://github.com/SoftFever/OrcaSlicer/releases/download/v2.3.1-beta/OrcaSlicer-Linux-flatpak_V2.3.1-beta_x86_64.flatpak
+flatpak install --assumeyes --system orcaslicer.flatpak
+rm orcaslicer.flatpak
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
