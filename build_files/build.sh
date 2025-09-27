@@ -16,6 +16,7 @@ set -ouex pipefail
 dnf5 install -y tmux htop btop zsh steam borgmatic
 
 # Set up system flatpaks
+mkdir -p /usr/etc/ublue-os
 echo '
 org.kde.kcalc
 org.kde.gwenview
