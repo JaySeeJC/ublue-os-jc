@@ -19,10 +19,6 @@ FROM ghcr.io/ublue-os/aurora-dx:latest
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
-COPY kernel-6.16.3_bsb_dirty-5.x86_64.rpm /kernel/
-COPY kernel-devel-6.16.3_bsb_dirty-5.x86_64.rpm /kernel/
-COPY kernel-headers-6.16.3_bsb_dirty-5.x86_64.rpm /kernel/
-
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
