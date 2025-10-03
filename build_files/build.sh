@@ -19,8 +19,8 @@ ls /usr/lib/modules
 
 # Ensure Initramfs is generated
 export DRACUT_NO_XATTR=1
-/usr/bin/dracut --no-hostonly --kver "6.16.3-bsb-dirty" --reproducible -v --add ostree -f "/lib/modules/6.16.3-bsb-dirty/initramfs.img"
-chmod 0600 "/lib/modules/6.16.3-bsb-dirty/initramfs.img"
+/usr/bin/dracut --no-hostonly --kver "6.16.10-bsb" --reproducible -v --add ostree -f "/lib/modules/6.16.10-bsb/initramfs.img"
+chmod 0600 "/lib/modules/6.16.10-bsb/initramfs.img"
 
 # this installs a package from fedora repos
 dnf5 install -y tmux htop btop zsh steam borgmatic
