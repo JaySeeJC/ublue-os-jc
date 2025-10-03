@@ -11,9 +11,9 @@ set -ouex pipefail
 
 dnf5 versionlock delete kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt kernel-devel kernel-headers
 
-dnf5 install -y https://github.com/jonchampagne/ublue-os-jc/releases/download/KernelSources/kernel-6.16.3_bsb_dirty-5.x86_64.rpm \
-  https://github.com/jonchampagne/ublue-os-jc/releases/download/KernelSources/kernel-devel-6.16.3_bsb_dirty-5.x86_64.rpm \
-  https://github.com/jonchampagne/ublue-os-jc/releases/download/KernelSources/kernel-headers-6.16.3_bsb_dirty-5.x86_64.rpm
+dnf5 install -y https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-6.16.10_bsb-4.x86_64.rpm \
+  https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-devel-6.16.10_bsb-4.x86_64.rpm \
+  https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-headers-6.16.10_bsb-4.x86_64.rpm
 dnf5 remove -y --no-autoremove kernel-modules kernel-modules-core kernel-modules-extra
 ls /usr/lib/modules
 
