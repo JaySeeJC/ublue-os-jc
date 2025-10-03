@@ -17,6 +17,14 @@ dnf5 install -y https://github.com/jonchampagne/ublue-os-jc/releases/download/Ke
 dnf5 remove -y --no-autoremove kernel-modules kernel-modules-core kernel-modules-extra
 ls /usr/lib/modules
 
+# Rebuild the initramfs
+KERNEL_VERSION="$(rpm -q --queryformat="%{evr}.%{arch}" kernel-core)"
+
+# Ensure Initramfs is generated
+export DRACUT_NO_XATTR=1
+/usr/bin/dracut --no-hostonly --kver "${KERNEL_VERSION}" --reproducible -v --add ostree -f "/lib/modules/${KERNEL_VERSION}/initramfs.img"
+chmod 0600 "/lib/modules/${KERNEL_VERSION}/initramfs.img"
+
 # this installs a package from fedora repos
 dnf5 install -y tmux htop btop zsh steam borgmatic
 
