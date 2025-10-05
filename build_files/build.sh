@@ -15,21 +15,19 @@ dnf5 install -y https://github.com/JaySeeJC/ublue-os-jc/releases/download/Kernel
   https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-devel-6.16.10_bsb-4.x86_64.rpm \
   https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-headers-6.16.10_bsb-4.x86_64.rpm
 dnf5 remove -y --no-autoremove kernel-modules kernel-modules-core kernel-modules-extra
-ls /usr/lib/modules
-
 # Ensure Initramfs is generated
 export DRACUT_NO_XATTR=1
 /usr/bin/dracut --no-hostonly --kver "6.16.10-bsb" --reproducible -v --add ostree -f "/lib/modules/6.16.10-bsb/initramfs.img"
 chmod 0600 "/lib/modules/6.16.10-bsb/initramfs.img"
 
-# this installs a package from fedora repos
-dnf5 install -y tmux htop btop zsh steam borgmatic
+# Install various packages
+dnf5 install -y \
+  tmux htop btop zsh steam borgmatic \ # General utilities
+  cargo cmake eigen3-devel gcc-c++ glslang-devel \ # Required for envision build dependencies
+  glslc libbsd-devel clang19-devel libdrm-devel \
+  mesa-libGL-devel systemd-devel libusb1 libusb1-devel \
+  libX11-devel libxcb-devel libxcb-devel libXrandr-devel \
+  mesa-libGL-devel ninja-build openxr-devel SDL2-devel \
+  vulkan-devel vulkan-loader-devel wayland-devel \
+  wayland-devel wayland-protocols-devel
 
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
-systemctl enable podman.socket
