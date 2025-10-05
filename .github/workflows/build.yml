@@ -36,6 +36,7 @@ jobs:
     steps:
       - name: Aggressive cleanup
         run: |
+          whoami
           df -h
           # Remove Java (JDKs)
           sudo rm -rf /usr/lib/jvm
