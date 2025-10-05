@@ -10,10 +10,7 @@ PACKAGES=(
     "https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-headers-6.16.10_bsb-4.x86_64.rpm"
 
     # General utilities
-    "tmux"
-    "htop"
     "btop"
-    "zsh"
     "steam"
     "borgmatic"
 
@@ -49,6 +46,7 @@ dnf5 remove -y --no-autoremove kernel-modules kernel-modules-core kernel-modules
 
 # Install packages
 dnf5 install -y "${PACKAGES[@]}"
+dnf5 clean all
 
 # Regenerate the initramfs
 export DRACUT_NO_XATTR=1
