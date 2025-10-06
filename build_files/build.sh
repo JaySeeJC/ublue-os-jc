@@ -57,6 +57,11 @@ mkdir /var/opt
 dnf5 install -y "${PACKAGES[@]}"
 dnf5 clean all
 
+# Move unityhub out of /var
+mkdir -p /usr/opt/
+mv /var/opt/unityhub /usr/opt/
+ln -s /usr/opt/unityhub /opt/unityhub
+
 # Regenerate the initramfs
 export DRACUT_NO_XATTR=1
 /usr/bin/dracut --no-hostonly --kver "6.16.10-bsb" --reproducible -v --add ostree -f "/lib/modules/6.16.10-bsb/initramfs.img"
