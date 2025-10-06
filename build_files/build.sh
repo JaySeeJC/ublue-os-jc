@@ -12,6 +12,7 @@ PACKAGES=(
     # General utilities
     "btop"
     "borgmatic"
+    "steam"
 
     # Required for envision build dependencies
     "cargo"
