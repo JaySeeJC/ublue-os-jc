@@ -14,6 +14,10 @@ PACKAGES=(
     "borgmatic"
     "steam"
 
+    # For vrchat unity development
+    "blender"
+    "unityhub"
+
     # Required for envision build dependencies
     "cargo"
     "cmake"
@@ -44,7 +48,12 @@ PACKAGES=(
 dnf5 versionlock delete kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt kernel-devel kernel-headers
 dnf5 remove -y --no-autoremove kernel-modules kernel-modules-core kernel-modules-extra
 
+# Add the unityhub repo per instructions from https://docs.unity3d.com/hub/manual/InstallHub.html
+sh -c 'echo -e "[unityhub]\nname=Unity Hub\nbaseurl=https://hub.unity3d.com/linux/repos/rpm/stable\nenabled=1\ngpgcheck=1\ngpgkey=https://hub.unity3d.com/linux/repos/rpm/stable/repodata/repomd.xml.key\nrepo_gpgcheck=0" > /etc/yum.repos.d/unityhub.repo'
+rpm --import https://hub.unity3d.com/linux/repos/rpm/stable/repodata/repomd.xml.key
+
 # Install packages
+mkdir /var/opt
 dnf5 install -y "${PACKAGES[@]}"
 dnf5 clean all
 
