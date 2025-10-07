@@ -2,6 +2,10 @@
 
 set -ouex pipefail
 
+### Packages needed for this script
+dnf5 install jq
+
+
 ### Install packages
 PACKAGES=(
     # Replcement kernel
@@ -12,7 +16,15 @@ PACKAGES=(
     # General utilities
     "btop"
     "borgmatic"
+    "du-dust"
+    "exo"
+    "gamemode"
+    "gparted"
     "steam"
+    "yt-dlp"
+
+    # LACT overclocking utility
+    $(curl -s https://api.github.com/repos/ilya-zlobintsev/LACT/releases/latest | jq -r ".assets[] | select(.name | endswith(\"fedora-42.rpm\")) | select(.name | contains(\"headless\") | not) | .browser_download_url")
 
     # For vrchat unity development
     "blender"
