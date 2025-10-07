@@ -9,9 +9,9 @@ dnf5 install jq
 ### Install packages
 PACKAGES=(
     # Replcement kernel
-    "https://fs.cameo.ninja/kernel-6.16.10_bsb-4.x86_64.rpm"
-    "https://fs.cameo.ninja/kernel-devel-6.16.10_bsb-4.x86_64.rpm"
-    "https://fs.cameo.ninja/kernel-headers-6.16.10_bsb-4.x86_64.rpm"
+    "https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-6.16.10_bsb-4.x86_64.rpm"
+    "https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-devel-6.16.10_bsb-4.x86_64.rpm"
+    "https://github.com/JaySeeJC/ublue-os-jc/releases/download/KernelSources/kernel-headers-6.16.10_bsb-4.x86_64.rpm"
 
     # General utilities
     "btop"
