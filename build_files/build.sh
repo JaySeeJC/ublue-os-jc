@@ -18,6 +18,7 @@ PACKAGES=(
     "borgmatic"
     "du-dust"
     "exo"
+    "firejail"
     "gamemode"
     "gparted"
     "steam"
