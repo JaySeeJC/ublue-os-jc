@@ -30,6 +30,8 @@ PACKAGES=(
     # For vrchat unity development
     "blender"
     "unityhub"
+    # ALCOM
+    $(curl -s https://api.github.com/repos/vrc-get/vrc-get/releases | jq -r '[.[] | select(.prerelease == false)][0].assets[] | select(.name | endswith(".rpm")) | .browser_download_url')
 
     # Required for envision build dependencies
     "cargo"
