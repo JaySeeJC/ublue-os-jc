@@ -183,5 +183,5 @@ jobs:
       - name: Cleanup
         run: |
           df -h .
-          podman system prune -a
+          podman system prune -af
           df -h .
