@@ -78,6 +78,9 @@ mkdir -p /usr/opt/
 mv /var/opt/unityhub /usr/opt/
 ln -s /usr/opt/unityhub /opt/unityhub
 
+# Enable LACT daemon
+systemctl enable lactd
+
 # Regenerate the initramfs
 export DRACUT_NO_XATTR=1
 /usr/bin/dracut --no-hostonly --kver "6.16.10-bsb" --reproducible -v --add ostree -f "/lib/modules/6.16.10-bsb/initramfs.img"
