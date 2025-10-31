@@ -21,6 +21,7 @@ PACKAGES=(
     "firejail"
     "gamemode"
     "gparted"
+    "gamescope"
     "steam"
     "yt-dlp"
 
