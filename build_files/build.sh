@@ -72,7 +72,7 @@ rpm --import https://hub.unity3d.com/linux/repos/rpm/stable/repodata/repomd.xml.
 
 # Install packages
 mkdir /var/opt
-dnf5 install -y --exclude=mesa-vulkan-drivers.i686 "${PACKAGES[@]}"
+dnf5 install -y --nodocs "${PACKAGES[@]}"
 dnf5 clean all
 
 # Move unityhub out of /var
