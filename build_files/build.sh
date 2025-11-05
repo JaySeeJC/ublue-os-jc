@@ -24,6 +24,7 @@ PACKAGES=(
     "gamescope"
     "steam"
     "yt-dlp"
+    "https://cdn.devolutions.net/download/Linux/RDM/2025.3.0.8/RemoteDesktopManager_2025.3.0.8_x86_64.rpm"
 
     # LACT overclocking utility
     $(curl -s https://api.github.com/repos/ilya-zlobintsev/LACT/releases/latest | jq -r ".assets[] | select(.name | endswith(\"fedora-42.rpm\")) | select(.name | contains(\"headless\") | not) | .browser_download_url")
