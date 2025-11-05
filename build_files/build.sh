@@ -72,6 +72,7 @@ rpm --import https://hub.unity3d.com/linux/repos/rpm/stable/repodata/repomd.xml.
 
 # Install packages
 mkdir /var/opt
+rm -f /usr/share/licenses/mesa-vulkan-drivers/LICENSE.dependencies
 dnf5 install -y --nodocs --allowerasing "${PACKAGES[@]}"
 dnf5 clean all
 
