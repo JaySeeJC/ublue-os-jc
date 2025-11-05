@@ -22,7 +22,6 @@ PACKAGES=(
     "gamemode"
     "gparted"
     "gamescope"
-    "steam"
     "yt-dlp"
     "https://cdn.devolutions.net/download/Linux/RDM/2025.3.0.8/RemoteDesktopManager_2025.3.0.8_x86_64.rpm"
     "mesa-vulkan-drivers.x86_64"
@@ -74,7 +73,8 @@ rpm --import https://hub.unity3d.com/linux/repos/rpm/stable/repodata/repomd.xml.
 # Install packages
 mkdir /var/opt
 rm -f /usr/share/licenses/mesa-vulkan-drivers/LICENSE.dependencies
-dnf5 install -y --nodocs --allowerasing "${PACKAGES[@]}"
+dnf5 install -y steam
+dnf5 install -y "${PACKAGES[@]}"
 dnf5 clean all
 
 # Move unityhub out of /var
